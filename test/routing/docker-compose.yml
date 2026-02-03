@@ -9,6 +9,7 @@ services:
     volumes:
       - "./server/run.sh:/run.sh:ro"
       - "./dump:/dump"
+    command: ["bash", "-c", "bash /run.sh && sleep infinity"]
     networks:
       network_a:
         ipv4_address: 10.123.200.2
@@ -23,6 +24,7 @@ services:
       - NET_ADMIN
     volumes:
       - "./router/run.sh:/run.sh:ro"
+    command: ["bash", "-c", "bash /run.sh && sleep infinity"]
     networks:
       network_a:
         ipv4_address: 10.123.200.3
@@ -39,6 +41,7 @@ services:
       - NET_ADMIN
     volumes:
       - "./client/run.sh:/run.sh:ro"
+    command: ["bash", "-c", "bash /run.sh && sleep infinity"]
     networks:
       network_c:
         ipv4_address: 10.123.202.3
